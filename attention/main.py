@@ -21,27 +21,47 @@ def main():
         ("ForgettingAgent", "../metta-attention/attention/agents/mettaAgents/ForgettingAgent/ForgettingAgent-runner.metta"),
     ]
 
+
     # Register agents
     print("\nRegistering agents...")
 
     # Looping through the list of tuples to register and run agents in the schduler
-    for agent_name, path in agent_configs:
-        scheduler.register_agent(agent_name, lambda p = path: AgentObject(metta=metta, path = p))
+    # for agent_name, path in agent_configs:
+    #     scheduler.register_agent(agent_name, lambda p = path: AgentObject(metta=metta, path = p))
+
+    
+    
+
+
+    scheduler.register_agent("AFImportanceDiffusionAgent", 
+        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/AFImportanceDiffusionAgent/AFImportanceDiffusionAgent-runner.metta"))
+    scheduler.register_agent("WAImportanceDiffusionAgent", 
+            lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/WAImportanceDiffusionAgent/WAImportanceDiffusionAgent-runner.metta"))
+    scheduler.register_agent("AFRentCollectionAgent", 
+        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/AFRentCollectionAgent/AFRentCollectionAgent-runner.metta"))
+    scheduler.register_agent("WARentCollectionAgent", 
+        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/WARentCollectionAgent/WARentCollectionAgent-runner.metta"))
+    scheduler.register_agent("HebbianUpdatingAgent", 
+        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/HebbianUpdatingAgent/HebbianUpdatingAgent-runner.metta"))
+    scheduler.register_agent("ForgettingAgent", 
+        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ForgettingAgent/ForgettingAgent-runner.metta"))
+    
 
     print("\nAgent System Ready!")
 
     # No need of while loop here and not recommedned the following print statement to enter the try block
     print("\nRunning agents in continuous mode. Press Ctrl+C to stop.")
-    try:
-        scheduler.run_continuously()
-    except KeyboardInterrupt:
-        print("\nReceived interrupt signal. Stopping system...")
-
-    except Exception as e:
-        print(f"\n Error: {e}")
-
-    finally:
-        print("System stopped. Goodbye!")
+    while True:
+        try:
+            scheduler.run_continuously()
+        except KeyboardInterrupt:
+            print("\nReceived interrupt signal. Stopping system...")
+    
+        except Exception as e:
+            print(f"\n Error: {e}")
+    
+        finally:
+            print("System stopped. Goodbye!")
 
 if __name__ == "__main__":
     main()
