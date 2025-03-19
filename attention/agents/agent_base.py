@@ -108,8 +108,13 @@ class AgentObject:
             with open(path, mode='r', encoding = "utf-8") as f:
                 code = f.read()
         # _code can remain None if the agent uses parent runner (when called from MeTTa)
-        self._code = code.get_children()[1] if isinstance(code, ExpressionAtom) else \
-            self._try_unwrap(code)
+        # IndexError When Accessing code children
+        children = code.get_children() if isinstance(code, ExpressionAtom) else None
+        if children and len(children) > 1:
+            self._code = children[1]
+        else:
+            # Fallback or raise an informative error
+            self._code = self._try_unwrap(code)
         self._atoms = atoms
         self._include_paths = include_paths
         self._context_space = None
