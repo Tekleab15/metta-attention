@@ -21,31 +21,12 @@ def main():
         ("ForgettingAgent", "../metta-attention/attention/agents/mettaAgents/ForgettingAgent/ForgettingAgent-runner.metta"),
     ]
 
-
     # Register agents
     print("\nRegistering agents...")
 
     # Looping through the list of tuples to register and run agents in the schduler
     for agent_name, path in agent_configs:
         scheduler.register_agent(agent_name, lambda p = path: AgentObject(metta=metta, path = p))
-
-    
-    
-
-
-    scheduler.register_agent("AFImportanceDiffusionAgent", 
-        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/AFImportanceDiffusionAgent/AFImportanceDiffusionAgent-runner.metta"))
-    scheduler.register_agent("WAImportanceDiffusionAgent", 
-            lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/WAImportanceDiffusionAgent/WAImportanceDiffusionAgent-runner.metta"))
-    scheduler.register_agent("AFRentCollectionAgent", 
-        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/AFRentCollectionAgent/AFRentCollectionAgent-runner.metta"))
-    scheduler.register_agent("WARentCollectionAgent", 
-        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/WARentCollectionAgent/WARentCollectionAgent-runner.metta"))
-    scheduler.register_agent("HebbianUpdatingAgent", 
-        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/HebbianUpdatingAgent/HebbianUpdatingAgent-runner.metta"))
-    scheduler.register_agent("ForgettingAgent", 
-        lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ForgettingAgent/ForgettingAgent-runner.metta"))
-    
 
     print("\nAgent System Ready!")
 
