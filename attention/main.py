@@ -12,14 +12,14 @@ def main():
     scheduler = ParallelScheduler(metta)
     
     # List of available agents and their path
-    agent_configs = [
-        ("AFImportanceDiffusionAgent", "../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/AFImportanceDiffusionAgent/AFImportanceDiffusionAgent-runner.metta"),
-        ("WAImportanceDiffusionAgent", "../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/WAImportanceDiffusionAgent/WAImportanceDiffusionAgent-runner.metta"),
-        ("AFRentCollectionAgent", "../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/AFRentCollectionAgent/AFRentCollectionAgent-runner.metta"),
-        ("WARentCollectionAgent", "../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/WARentCollectionAgent/WARentCollectionAgent-runner.metta"),
-        ("HebbianUpdatingAgent", "../metta-attention/attention/agents/mettaAgents/HebbianUpdatingAgent/HebbianUpdatingAgent-runner.metta"),
-        ("ForgettingAgent", "../metta-attention/attention/agents/mettaAgents/ForgettingAgent/ForgettingAgent-runner.metta"),
-    ]
+    # agent_configs = [
+    #     ("AFImportanceDiffusionAgent", "../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/AFImportanceDiffusionAgent/AFImportanceDiffusionAgent-runner.metta"),
+    #     ("WAImportanceDiffusionAgent", "../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/WAImportanceDiffusionAgent/WAImportanceDiffusionAgent-runner.metta"),
+    #     ("AFRentCollectionAgent", "../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/AFRentCollectionAgent/AFRentCollectionAgent-runner.metta"),
+    #     ("WARentCollectionAgent", "../metta-attention/attention/agents/mettaAgents/RentCollectionAgent/WARentCollectionAgent/WARentCollectionAgent-runner.metta"),
+    #     ("HebbianUpdatingAgent", "../metta-attention/attention/agents/mettaAgents/HebbianUpdatingAgent/HebbianUpdatingAgent-runner.metta"),
+    #     ("ForgettingAgent", "../metta-attention/attention/agents/mettaAgents/ForgettingAgent/ForgettingAgent-runner.metta"),
+    # ]
 
 
     # Register agents
@@ -56,10 +56,10 @@ def main():
             scheduler.run_continuously()
         except KeyboardInterrupt:
             print("\nReceived interrupt signal. Stopping system...")
-    
+
         except Exception as e:
             print(f"\n Error: {e}")
-    
+
         finally:
             print("System stopped. Goodbye!")
 
