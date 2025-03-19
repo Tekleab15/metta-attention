@@ -14,7 +14,6 @@ def main():
     base_dir = os.path.abspath(os.path.dirname(__file__))
     
     # List available agents with absolute paths
-
     agent_configs = [
         ("AFImportanceDiffusionAgent", os.path.join(base_dir, "agents", "mettaAgents", "ImportanceDiffusionAgent", "AFImportanceDiffusionAgent", "AFImportanceDiffusionAgent-runner.metta")),
         ("WAImportanceDiffusionAgent", os.path.join(base_dir, "agents", "mettaAgents", "ImportanceDiffusionAgent", "WAImportanceDiffusionAgent", "WAImportanceDiffusionAgent-runner.metta")),
@@ -42,6 +41,7 @@ def main():
         scheduler.run_continuously()
     except KeyboardInterrupt:
         print("\nReceived interrupt signal. Stopping system...")
+        print("Getting executed here")
     except Exception as e:
         print(f"\n Error: {e}")
     finally:
