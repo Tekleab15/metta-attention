@@ -93,8 +93,8 @@ class AgentObject:
         if isinstance(val, GroundedAtom):
             return str(val.get_object().content)
         return repr(val)
-
-    def __init__(self, metta=None, path=None, atoms={}, include_paths=None, code=None):
+    # Avoiding mutable default aruments (atoms = {} => atoms = None)
+    def __init__(self, metta=None, path=None, atoms=None, include_paths=None, code=None):
         self._metta = metta
         if path is None and code is None:
             # purely Python agent
@@ -104,7 +104,8 @@ class AgentObject:
             code = path
         elif path is not None:
             path = self._try_unwrap(path)
-            with open(path, mode='r') as f:
+            # Specify file encoding while reading files
+            with open(path, mode='r', encoding = "utf-8") as f:
                 code = f.read()
         # _code can remain None if the agent uses parent runner (when called from MeTTa)
         self._code = code.get_children()[1] if isinstance(code, ExpressionAtom) else \
