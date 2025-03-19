@@ -11,7 +11,7 @@ def main():
 
     scheduler = ParallelScheduler(metta)
 
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "metta-attention", "attention"))
+    base_dir = os.path.abspath(os.path.dirname(__file__))
     
     # List available agents with absolute paths
 
