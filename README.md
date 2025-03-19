@@ -1,4 +1,13 @@
-# Economic Attention Networks (ECAN)
+# Economic Attention Networks (ECAN) "Tekleab Gebremedhin"
+# Improvements made
+    attention/main.py:
+        - Consolidated agent registration into a configuration loop to reduce code duplication in the 
+          agent registeration
+        - Replaced relative file paths with absolute paths based on main.py’s directory, eliminating  
+          file-not-found errors
+        - Enhanced robustness with file existence checks and streamlined error handling for clearer 
+          diagnostics.
+        - Now the code satisfies the DRY clean code principle.
 
 - This repository contains MeTTa code for [attention](https://github.com/singnet/attention) codebase port/re-implementation.
 
