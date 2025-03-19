@@ -1,3 +1,4 @@
+from typing import Any, Optional
 from hyperon import *
 from hyperon.ext import register_atoms
 
@@ -87,7 +88,8 @@ class AgentObject:
     def name(cls):
         return cls._name if cls._name is not None else str(cls)
 
-    def _try_unwrap(self, val):
+    # Adding Typing for more accurate and bounding error possibilites
+    def _try_unwrap(self, val: Any) -> Optional[str]:
         if val is None or isinstance(val, str):
             return val
         if isinstance(val, GroundedAtom):
@@ -108,7 +110,7 @@ class AgentObject:
             with open(path, mode='r', encoding = "utf-8") as f:
                 code = f.read()
         # _code can remain None if the agent uses parent runner (when called from MeTTa)
-        # IndexError When Accessing code children
+        # Silenting IndexError possibilities When Accessing code children
         children = code.get_children() if isinstance(code, ExpressionAtom) else None
         if children and len(children) > 1:
             self._code = children[1]
