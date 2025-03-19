@@ -14,6 +14,10 @@ def main():
     # Register agents
     print("\nRegistering agents...")
 
+    # As the code gets larger and more agents are getting implemented it's better to loop through them 
+
+    agent_configs = [(),]
+
     scheduler.register_agent("AFImportanceDiffusionAgent", 
         lambda: AgentObject(metta=metta, path="../metta-attention/attention/agents/mettaAgents/ImportanceDiffusionAgent/AFImportanceDiffusionAgent/AFImportanceDiffusionAgent-runner.metta"))
     scheduler.register_agent("WAImportanceDiffusionAgent", 
