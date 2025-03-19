@@ -10,7 +10,7 @@ def main():
     metta = MeTTa()
 
     scheduler = ParallelScheduler(metta)
-    
+
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "metta-attention", "attention"))
     
     # List available agents with absolute paths
@@ -29,6 +29,8 @@ def main():
 
     # Looping through the list of tuples to register and run agents in the schduler
     for agent_name, path in agent_configs:
+        if not os.path.isfile(path):
+            print(f"Warning: File not found for agent {agent_name}: {path}")
         scheduler.register_agent(agent_name, lambda p = path: AgentObject(metta=metta, path = p))
 
     print("\nAgent System Ready!")
