@@ -1,6 +1,9 @@
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+base_dir = sys.path.append(os.path.dirname(os.path.abspath(__file__),".."))
+sys.path.append(os.path.join(base_dir, "attention"))
+sys.path.append(os.path.join(base_dir, "attention-bank"))
 
 from hyperon import MeTTa
 from agents.scheduler import ParallelScheduler
@@ -11,16 +14,15 @@ def main():
 
     scheduler = ParallelScheduler(metta)
 
-    base_dir = os.path.abspath(os.path.dirname(__file__))
-    
+    current_dir = os.path.abspath(os.path.dirname(__file__))
     # List available agents with absolute paths
     agent_configs = [
-        ("AFImportanceDiffusionAgent", os.path.join(base_dir, "agents", "mettaAgents", "ImportanceDiffusionAgent", "AFImportanceDiffusionAgent", "AFImportanceDiffusionAgent-runner.metta")),
-        ("WAImportanceDiffusionAgent", os.path.join(base_dir, "agents", "mettaAgents", "ImportanceDiffusionAgent", "WAImportanceDiffusionAgent", "WAImportanceDiffusionAgent-runner.metta")),
-        ("AFRentCollectionAgent", os.path.join(base_dir, "agents", "mettaAgents", "RentCollectionAgent", "AFRentCollectionAgent", "AFRentCollectionAgent-runner.metta")),
-        ("WARentCollectionAgent", os.path.join(base_dir, "agents", "mettaAgents", "RentCollectionAgent", "WARentCollectionAgent", "WARentCollectionAgent-runner.metta")),
-        ("HebbianUpdatingAgent", os.path.join(base_dir, "agents", "mettaAgents", "HebbianUpdatingAgent", "HebbianUpdatingAgent-runner.metta")),
-        ("ForgettingAgent", os.path.join(base_dir, "agents", "mettaAgents", "ForgettingAgent", "ForgettingAgent-runner.metta")),
+        ("AFImportanceDiffusionAgent", os.path.join(current_dir, "agents", "mettaAgents", "ImportanceDiffusionAgent", "AFImportanceDiffusionAgent", "AFImportanceDiffusionAgent-runner.metta")),
+        ("WAImportanceDiffusionAgent", os.path.join(current_dir, "agents", "mettaAgents", "ImportanceDiffusionAgent", "WAImportanceDiffusionAgent", "WAImportanceDiffusionAgent-runner.metta")),
+        ("AFRentCollectionAgent", os.path.join(current_dir, "agents", "mettaAgents", "RentCollectionAgent", "AFRentCollectionAgent", "AFRentCollectionAgent-runner.metta")),
+        ("WARentCollectionAgent", os.path.join(current_dir, "agents", "mettaAgents", "RentCollectionAgent", "WARentCollectionAgent", "WARentCollectionAgent-runner.metta")),
+        ("HebbianUpdatingAgent", os.path.join(current_dir, "agents", "mettaAgents", "HebbianUpdatingAgent", "HebbianUpdatingAgent-runner.metta")),
+        ("ForgettingAgent", os.path.join(current_dir, "agents", "mettaAgents", "ForgettingAgent", "ForgettingAgent-runner.metta")),
     ]
 
     # Register agents
