@@ -9,6 +9,18 @@
           diagnostics.
         - Now the code satisfies the DRY clean code principle.
 
+    attention/agents/scheduler.py
+        - Added Check point and log any exceptions from agent tasks
+        - Removing unused imports for code quality (such as time module)
+        
+    attention/agents/agent_base.py
+        - Avoiding Mutable default arguments ex- atoms = {} in the __init__() function
+        - Specify file encoding while reading files (adding the encoding or format of the file we are 
+          reading)
+        - Addressed IndexError occuring when accessing code children
+
+
+
 - This repository contains MeTTa code for [attention](https://github.com/singnet/attention) codebase port/re-implementation.
 
 ## Introduction
