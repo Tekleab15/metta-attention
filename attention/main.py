@@ -36,12 +36,10 @@ def main():
 
     # No need of while loop here and not recommedned the following print statement to enter the try block
     print("\nRunning agents in continuous mode. Press Ctrl+C to stop.")
-    print("This is the newer one.")
     try:
         scheduler.run_continuously()
     except KeyboardInterrupt:
         print("\nReceived interrupt signal. Stopping system...")
-        print("Getting executed here")
     except Exception as e:
         print(f"\n Error: {e}")
     finally:
