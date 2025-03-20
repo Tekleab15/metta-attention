@@ -18,7 +18,7 @@
         - Specify file encoding while reading files (adding the encoding or format of the file we are 
           reading)
         - Addressed IndexError occuring when accessing code children
-2.  Among the features I have choosen to implement a robust logging framework implemented in the ecan_logger.py file (located in the attention/utils/ directory). This component plays a critical role in monitoring and debugging the ECAN (Economic Attention Networks) system, ensuring that key events and state changes are captured during execution.
+# 2  Among the features I have choosen to implement a robust logging framework implemented in the ecan_logger.py file (located in the attention/utils/ directory). This component plays a critical role in monitoring and debugging the ECAN system, ensuring that key events and state changes are captured during execution.
   - The logger records detailed events at various levels (DEBUG, INFO, WARNING, ERROR, CRITICAL) at the following states as follows
        - Initialization events(When the MeTTa instance and agents are created)
        - Agent registeration and execution
